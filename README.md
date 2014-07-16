@@ -14,9 +14,7 @@ Example:
 const SqliteToJson = require('sqlite-to-json');
 const sqlite3 = require('sqlite3');
 const exporter = new SqliteToJson({
-  client: sqlite3.Database({
-    filename: 'mydb.sqlite3'
-  })
+  client: new sqlite3.Database('./mydb.sqlite3')
 });
 ```
 
@@ -37,9 +35,7 @@ Example:
 const SqliteToJson = require('sqlite-to-json');
 const sqlite3 = require('sqlite3');
 const exporter = new SqliteToJson({
-  client: sqlite3.Database({
-    filename: 'mydb.sqlite3'
-  })
+  client: new sqlite3.Database('./mydb.sqlite3')
 });
 exporter.tables(function (err, tables) {
   // all your table names here
@@ -55,9 +51,7 @@ Example:
 const SqliteToJson = require('sqlite-to-json');
 const sqlite3 = require('sqlite3');
 const exporter = new SqliteToJson({
-  client: sqlite3.Database({
-    filename: 'mydb.sqlite3'
-  })
+  client: new sqlite3.Database('./mydb.sqlite3')
 });
 exporter.save('table_name', './data/table_name.json', function (err) {
   // no error and you're good.
