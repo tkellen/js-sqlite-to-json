@@ -7,13 +7,13 @@
 
 ### constructor(opts)
 
-Create an instance of Sqlite2Json.
+Create an instance of SqliteToJson.
 
 Example:
 ```js
-const Sqlite3ToJson = require('sqlite3-to-json');
+const SqliteToJson = require('sqlite-to-json');
 const sqlite3 = require('sqlite3');
-const exporter = new Sqlite3ToJson({
+const exporter = new SqliteToJson({
   client: sqlite3.Database({
     filename: 'mydb.sqlite3'
   })
@@ -34,9 +34,9 @@ List all tables in the current database.
 
 Example:
 ```js
-const Sqlite3ToJson = require('sqlite3-to-json');
+const SqliteToJson = require('sqlite-to-json');
 const sqlite3 = require('sqlite3');
-const exporter = new Sqlite3ToJson({
+const exporter = new SqliteToJson({
   client: sqlite3.Database({
     filename: 'mydb.sqlite3'
   })
@@ -52,9 +52,9 @@ Save the contents of a table to the specified output directory.
 
 Example:
 ```js
-const Sqlite3ToJson = require('sqlite3-to-json');
+const SqliteToJson = require('sqlite-to-json');
 const sqlite3 = require('sqlite3');
-const exporter = new Sqlite3ToJson({
+const exporter = new SqliteToJson({
   client: sqlite3.Database({
     filename: 'mydb.sqlite3'
   })
