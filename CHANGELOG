@@ -1,3 +1,7 @@
+v0.1.2:
+  date: 2015-02-25
+  changes:
+    - Throw if destination or callback are not specified.
 v0.1.1:
   date: 2014-07-16
   changes:
