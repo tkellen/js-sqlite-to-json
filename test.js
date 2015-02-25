@@ -52,6 +52,19 @@ describe('sqliteToJson', function () {
 
   describe('#save', function () {
 
+    it('should throw if no destination is specified', function () {
+      var dest = './.tmp/numbers.json';
+      expect(function () {
+        exporter.save('numbers');
+      }).to.throw(/No dest/);
+    });
+
+    it('should throw if no callback is specified', function () {
+      expect(function () {
+        exporter.save('numbers', 'file');
+      }).to.throw(/No callback/);
+    });
+
     it('should export a table in a database to a file', function (done) {
       var dest = './.tmp/numbers.json';
       exporter.save('numbers', dest, function (err) {

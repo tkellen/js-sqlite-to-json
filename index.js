@@ -23,6 +23,12 @@ SqliteToJson.prototype.tables = function (cb) {
 };
 
 SqliteToJson.prototype.save = function (table, dest, cb) {
+  if (!dest) {
+    throw new Error('No destination file specified.');
+  }
+  if (typeof cb !== 'function') {
+    throw new Error('No callback specified.');
+  }
   this._dataFor(table, function (dataErr, tableData) {
     if (dataErr) {
       cb(dataErr);
