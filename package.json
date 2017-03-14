@@ -37,6 +37,6 @@
     "sqlite to json"
   ],
   "dependencies": {
-    "mkdirp": "^0.5.0"
+    "mkdirp": "^0.5.1"
   }
 }
