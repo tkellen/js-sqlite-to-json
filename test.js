@@ -75,4 +75,13 @@ describe('sqliteToJson', function () {
 
   });
 
+  describe('#all', function() {
+    it('should export all data into a single object', function(done) {
+      exporter.all(function (err, all) {
+        expect(all && all.numbers).to.deep.equal(data);
+        done();
+      })
+    })
+  });
+
 });

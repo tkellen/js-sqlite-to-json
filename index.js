@@ -50,6 +50,22 @@ SqliteToJson.prototype.save = function (table, dest, cb) {
   });
 };
 
+SqliteToJson.prototype.all = function(cb) {
+  var self = this;
+  this.tables(function (err, tables) {
+    if (err) return cb(err);
+    var ret = {};
+    function loop (i) {
+      if (i === tables.length) cb(null, ret);
+      else self._dataFor(tables[i], function (dataErr, tableData) {
+        if (dataErr) cb(dataErr);
+        else loop(i + 1, ret[tables[i]] = tableData);
+      })
+    }
+    loop(0);
+  })
+};
+
 SqliteToJson.prototype._dataFor = function (table, cb) {
   // apparently you can't used named params for table names?
   this.client.all('SELECT * FROM '+table, cb);

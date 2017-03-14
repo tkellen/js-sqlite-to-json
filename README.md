@@ -57,3 +57,19 @@ exporter.save('table_name', './data/table_name.json', function (err) {
   // no error and you're good.
 });
 ```
+
+### all(cb)
+
+Returns the entire database and all tables as a single object.
+
+Example:
+```js
+const SqliteToJson = require('sqlite-to-json');
+const sqlite3 = require('sqlite3');
+const exporter = new SqliteToJson({
+  client: new sqlite3.Database('./mydb.sqlite3')
+});
+exporter.all(function (err, all) {
+  // all your data here
+});
+```
