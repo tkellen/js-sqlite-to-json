@@ -14,7 +14,7 @@ SqliteToJson.prototype.tables = function (cb) {
   var query = "SELECT name FROM sqlite_master WHERE type='table'";
   this.client.all(query, function (err, tables) {
     if (err) {
-      throw new Error(err);
+      return cb(err);
     }
     cb(null, tables.map(function (result) {
       return result.name;
@@ -23,11 +23,11 @@ SqliteToJson.prototype.tables = function (cb) {
 };
 
 SqliteToJson.prototype.save = function (table, dest, cb) {
-  if (!dest) {
-    throw new Error('No destination file specified.');
-  }
   if (typeof cb !== 'function') {
     throw new Error('No callback specified.');
+  }
+  if (!dest) {
+    return cb(new Error('No destination file specified.'));
   }
   this._dataFor(table, function (dataErr, tableData) {
     if (dataErr) {

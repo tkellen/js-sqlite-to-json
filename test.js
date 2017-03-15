@@ -52,11 +52,12 @@ describe('sqliteToJson', function () {
 
   describe('#save', function () {
 
-    it('should throw if no destination is specified', function () {
+    it('should callback with error if no destination is specified', function (done) {
       var dest = './.tmp/numbers.json';
-      expect(function () {
-        exporter.save('numbers');
-      }).to.throw(/No dest/);
+      exporter.save('numbers', null, function(err) {
+        expect(err).to.not.be.null;
+        done();
+      })
     });
 
     it('should throw if no callback is specified', function () {
