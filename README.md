@@ -1,4 +1,4 @@
-# sqlite-to-json [![Build Status](https://secure.travis-ci.org/tkellen/node-sqlite-to-json.png)](http://travis-ci.org/tkellen/node-sqlite-to-json)
+# sqlite-to-json [![Build Status](https://secure.travis-ci.org/tkellen/js-sqlite-to-json.png)](http://travis-ci.org/tkellen/js-sqlite-to-json)
 > Dump data from sqlite databases to JSON files easily.
 
 [![NPM](https://nodei.co/npm/sqlite-to-json.png)](https://nodei.co/npm/sqlite-to-json/)
